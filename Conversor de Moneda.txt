@@ -1,0 +1,219 @@
+package com.mycompany.mavenproject1;
+
+/**
+ *
+ * @author alumno
+ */
+public class Parcial extends javax.swing.JFrame {
+
+    
+    int cant=0;
+    double conver=0;
+    String d="USD";
+    String a="USD";
+   
+    
+    public Parcial() {
+        initComponents();
+    }
+
+   
+    public String Money(double cant, String money){
+        return "$" +Math.round(cant*100.00)/100.00+" "+money;
+    }
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        Scant = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        BD = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        BA = new javax.swing.JComboBox<>();
+        Lresul = new javax.swing.JLabel();
+        Lcant = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        jLabel1.setText("Cantidad");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 80, 30));
+
+        Scant.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        Scant.setValue(0);
+        Scant.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                ScantAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        Scant.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                ScantStateChanged(evt);
+            }
+        });
+        getContentPane().add(Scant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 240, -1));
+
+        jLabel2.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        jLabel2.setText("Convertird de:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        BD.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        BD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "MXN", "GTQ", "EUR" }));
+        BD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        jLabel3.setText("Convertir a");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, 20));
+
+        BA.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        BA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "USD", "MXN", "GTQ", "EUR" }));
+        BA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
+
+        Lresul.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        getContentPane().add(Lresul, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 270, 50));
+
+        Lcant.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        Lcant.setText("1");
+        Lcant.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                LcantAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(Lcant, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 70, 20));
+
+        pack();
+    }// </editor-fold>                        
+
+    private void ScantAncestorAdded(javax.swing.event.AncestorEvent evt) {                                    
+       
+       
+    }                                   
+
+    private void LcantAncestorAdded(javax.swing.event.AncestorEvent evt) {                                    
+       
+    }                                   
+
+    private void BDActionPerformed(java.awt.event.ActionEvent evt) {                                   
+
+        d=BD.getSelectedItem().toString();
+       conver();
+    }                                  
+
+    private void BAActionPerformed(java.awt.event.ActionEvent evt) {                                   
+
+        a=BA.getSelectedItem().toString();
+       conver();
+    }                                  
+
+    private void ScantStateChanged(javax.swing.event.ChangeEvent evt) {                                   
+      
+        cant=Scant.getValue();
+        Lcant.setText(""+cant);
+    }                                  
+
+    public void conver(){
+     
+        switch (d){
+                case"USD":
+                if(a.equals("MXN")){
+                    conver=cant*20.43;
+                } else if(a.equals("EUR")){
+                    conver=cant*0.95;
+                } else if(a.equals("GTQ")){
+                    conver=cant*7.67;
+                } else {
+                    conver=cant;
+                }
+               break;
+                case"MXN":
+                if(a.equals("USD")){
+                    conver=cant*0.049;
+                } else if(a.equals("EUR")){
+                    conver=cant*0.047;
+                } else if(a.equals("GTQ")){
+                    conver=cant*0.38;
+                } else {
+                    conver=cant;
+                }
+                 break;
+                case"EUR":
+                if(a.equals("USD")){
+                    conver=cant*1.05;
+                } else if(a.equals("MXN")){
+                    conver=cant*21.50;
+                } else if(a.equals("GTQ")){
+                    conver=cant*8.07;
+                } else {
+                    conver=cant;
+                }
+            break;
+                case"GTQ":
+                if(a.equals("USD")){
+                    conver=cant*0.13;
+                } else if(a.equals("EUR")){
+                    conver=cant*0.12;
+                } else if(a.equals("MXN")){
+                    conver=cant*2.67;
+                } else {
+                    conver=cant;
+                }
+            break;
+        }
+        
+        Lresul.setText(Money(cant,d)+"   "+Money(conver,a));
+    }     
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Parcial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Parcial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Parcial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Parcial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Parcial().setVisible(true);
+            }
+        });
+    }
